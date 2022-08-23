@@ -1,0 +1,17 @@
+
+<h1>Longest word game</h1>
+<% @letters.each do |letter| %>
+<h2 class= "btn btn-primary"><%= letter.capitalize %></h2>
+<% end %>
+
+<form action="answer" method="post" data-turbo="false">
+<%# # When the input is submitted in the form
+# the action directs you to the routes.rb
+# post 'answer', to: 'games#score'
+# answer refers to the name of the action in the form
+# games#score refers to the method score inside the game controller %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= hidden_field_tag :letters, @letters %>
+  <input type="text" name="answer">
+  <input type="submit" value= "play">
+</form>
